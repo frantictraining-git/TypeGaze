@@ -639,6 +639,70 @@ header p {
     100% { opacity: 1; transform: scale(1); }
 }
 
+/* Sidebar Footer */
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#policy-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+#policy-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Policy Modal Specifics */
+.policy-content {
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.policy-text {
+    overflow-y: auto;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    padding-right: 10px;
+}
+
+.policy-text h3 {
+    color: #fff;
+    margin: 1.5rem 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.policy-text h4 {
+    color: #cbd5e1;
+    margin: 1rem 0 0.25rem 0;
+    font-size: 1rem;
+}
+
+.policy-text p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+}
+
+.policy-text a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+.policy-text a:hover {
+    text-decoration: underline;
+}
+
 /* Custom Notification Modal */
 .notification-modal {
     position: fixed;

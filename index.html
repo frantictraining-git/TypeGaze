@@ -24,6 +24,10 @@
                 <textarea id="custom-lesson-text" placeholder="Paste your own text here to practice..." rows="3"></textarea>
                 <button id="add-custom-lesson-btn" class="primary-btn">Start Custom Lesson</button>
             </div>
+
+            <div class="sidebar-footer">
+                <a href="#" id="policy-link">Privacy & Disclaimer</a>
+            </div>
         </aside>
 
         <div class="main-content">
@@ -93,6 +97,30 @@
                 <span class="icon">✨</span>
             </div>
         </div>
+
+        <!-- Privacy & Disclaimer Modal -->
+        <div id="policy-modal" class="modal hidden">
+            <div class="modal-content glass-panel policy-content">
+                <h2>Privacy & Disclaimer</h2>
+                <div class="policy-text">
+                    <h3>Disclaimer</h3>
+                    <p>TypeGaze is an independent, non-commercial software project created by MD Towhidul Islam. It is designed solely as a portfolio piece to demonstrate interactive web development and user interface design. TypeGaze is not a registered business or commercial service. The application is provided "as is" without any warranties, guarantees, or liability for its use.</p>
+                    
+                    <h3>Privacy Policy</h3>
+                    <p>We respect your privacy and are committed to protecting it in accordance with UK GDPR and PECR regulations.</p>
+                    
+                    <h4>Data Collection</h4>
+                    <p>TypeGaze is a private, client-side application. We do not collect, transmit, or store any personal data (such as names, IP addresses, or email addresses) on our servers. All typing test results, statistics, and preferences are processed locally within your own browser.</p>
+                    
+                    <h4>Cookies & Local Storage</h4>
+                    <p>We do not use tracking cookies, analytics (such as Google Analytics), or third-party advertising trackers. We may use your browser's local storage strictly to remember your preferences (e.g., theme settings or local high scores). This is considered strictly necessary for the functionality of the app and does not require consent under UK PECR rules.</p>
+                    
+                    <p>If you have any questions about this project, please visit <a href="https://londongaze.co.uk/" target="_blank">londongaze.co.uk</a>.</p>
+                </div>
+                <button id="close-policy-btn" class="primary-btn">Close</button>
+            </div>
+        </div>
+
     </div>
     <script src="script.js"></script>
 </body>

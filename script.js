@@ -71,6 +71,9 @@ const startLessonBtn = document.getElementById('start-lesson-btn');
 const abandonModal = document.getElementById('abandon-modal');
 const confirmAbandonBtn = document.getElementById('confirm-abandon-btn');
 const cancelAbandonBtn = document.getElementById('cancel-abandon-btn');
+const policyLink = document.getElementById('policy-link');
+const policyModal = document.getElementById('policy-modal');
+const closePolicyBtn = document.getElementById('close-policy-btn');
 
 let pendingLessonIndex = null;
 
@@ -461,6 +464,25 @@ confirmAbandonBtn.addEventListener('click', () => {
     if (pendingLessonIndex !== null) {
         loadLesson(pendingLessonIndex);
         pendingLessonIndex = null;
+    }
+});
+
+// Policy Modal Listeners
+policyLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    policyModal.classList.remove('hidden');
+});
+
+closePolicyBtn.addEventListener('click', () => {
+    policyModal.classList.add('hidden');
+    document.body.focus();
+});
+
+// Close modals when clicking outside
+window.addEventListener('click', (e) => {
+    if (e.target === policyModal) {
+        policyModal.classList.add('hidden');
+        document.body.focus();
     }
 });
 
