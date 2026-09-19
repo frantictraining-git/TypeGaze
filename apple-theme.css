@@ -1,0 +1,206 @@
+/* Override all dark styles to match the Apple Light Keyboard theme */
+:root {
+    --bg-main: #f5f5f7; /* Very light gray/white from screenshot */
+    --key-white: #ffffff;
+    --key-gray: #e5e5ea;
+    --key-orange: #f26522;
+    --text-dark: #1d1d1f;
+    --text-muted: #86868b;
+}
+
+body {
+    background: var(--bg-main) !important;
+    color: var(--text-dark) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* Hide sidebar and old UI elements we don't want */
+.app-container {
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem !important;
+}
+.sidebar { display: none !important; }
+.main-content {
+    width: 100%;
+}
+.glass-panel {
+    background: transparent !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+.sidebar-header {
+    display: none; /* Hide old header */
+}
+
+/* Replicate the top two boxes */
+.text-display.glass-panel {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    margin-bottom: 2rem;
+}
+
+.text-wrapper {
+    flex: 1;
+    background: transparent;
+    border: 1px solid #d1d1d6;
+    border-radius: 12px;
+    padding: 2rem;
+    min-height: 140px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.stats {
+    width: 250px;
+    background: transparent;
+    border: 1px solid #d1d1d6;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: left;
+}
+.stats span {
+    font-size: 12px;
+}
+
+/* Keyboard */
+.virtual-keyboard {
+    background: transparent !important;
+    padding: 0 !important;
+    gap: 8px !important;
+}
+.keyboard-row {
+    gap: 8px !important;
+}
+.key {
+    background: var(--key-white) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: var(--text-dark) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 1px rgba(0,0,0,0.05) !important;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 1.2rem !important;
+    font-weight: 400 !important;
+    text-transform: lowercase;
+}
+
+/* Modifier keys are gray */
+.key[data-key="Tab"],
+.key[data-key="CapsLock"],
+.key[data-key="ShiftLeft"],
+.key[data-key="ShiftRight"],
+.key[data-key="ControlLeft"],
+.key[data-key="AltLeft"],
+.key[data-key="MetaLeft"],
+.key[data-key="ControlRight"],
+.key[data-key="AltRight"],
+.key[data-key="MetaRight"],
+.key[data-key="Backspace"],
+.key[data-key="\\"] {
+    background: var(--key-gray) !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+}
+
+/* Return key */
+.key[data-key="Enter"] {
+    background: var(--key-orange) !important;
+    color: white !important;
+    position: relative;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+}
+/* Tiny dot on enter key */
+.key[data-key="Enter"]::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* Override old finger highlights completely */
+.key[data-finger] {
+    border-bottom: none !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 1px rgba(0,0,0,0.05) !important;
+}
+.key.highlight {
+    background: #d1d1d6 !important;
+    color: var(--text-dark) !important;
+    border: none !important;
+    box-shadow: 0 0 0 2px var(--key-orange) !important;
+    transform: none !important;
+    text-shadow: none !important;
+}
+.key.pressed {
+    transform: scale(0.95) !important;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) !important;
+    border: none !important;
+}
+
+/* Hide hands */
+.hands-overlay {
+    display: none !important;
+}
+.finger-hint {
+    display: none !important;
+}
+
+/* LondonGaze specific header/footer in the body */
+.lg-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.lg-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+.lg-nav {
+    display: flex;
+    gap: 2rem;
+}
+.lg-nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.lg-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
