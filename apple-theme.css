@@ -248,12 +248,12 @@ body {
 .finger-hint {
     display: block !important;
     position: absolute;
-    bottom: -2rem;
+    bottom: -3rem;
     left: 0;
     width: 100%;
     text-align: center;
     color: var(--text-dark) !important;
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
     font-weight: 600 !important;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -270,7 +270,7 @@ body {
     background: transparent !important;
     padding: 0 !important;
     box-shadow: none !important;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
     position: relative;
     overflow: visible !important;
 }
