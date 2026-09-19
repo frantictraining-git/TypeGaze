@@ -107,10 +107,11 @@ body {
     padding: 2rem !important;
     min-height: 140px;
     font-size: 1.5rem;
-    display: flex;
-    align-items: center;
     position: relative;
     overflow: hidden;
+    white-space: pre-wrap;
+    text-align: left;
+    line-height: 1.5;
 }
 
 /* Text Colors */
