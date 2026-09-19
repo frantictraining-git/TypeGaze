@@ -269,6 +269,7 @@ body {
     box-shadow: none !important;
     margin-bottom: 2rem;
     position: relative;
+    overflow: visible !important;
 }
 
 /* Modals */
