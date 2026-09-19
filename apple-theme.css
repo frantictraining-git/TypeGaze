@@ -1,11 +1,13 @@
 /* Override all dark styles to match the Apple Light Keyboard theme */
 :root {
-    --bg-main: #f5f5f7; /* Very light gray/white from screenshot */
+    --bg-main: #fbfbfd;
     --key-white: #ffffff;
     --key-gray: #e5e5ea;
     --key-orange: #f26522;
     --text-dark: #1d1d1f;
     --text-muted: #86868b;
+    --border-color: #d1d1d6;
+    --accent-gold: #c39a58;
 }
 
 body {
@@ -14,18 +16,67 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 }
 
-/* Hide sidebar and old UI elements we don't want */
+/* Layout */
 .app-container {
-    flex-direction: column !important;
-    align-items: center;
-    justify-content: center;
-    max-width: 1100px;
+    display: flex;
+    flex-direction: row !important;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 2rem !important;
+    padding-top: 6rem !important; /* space for header */
+    gap: 2rem;
 }
-.sidebar { display: none !important; }
+.sidebar { 
+    display: flex !important; 
+    width: 300px;
+    background: var(--key-white) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    color: var(--text-dark) !important;
+}
+.sidebar h2, .sidebar h3 {
+    color: var(--text-dark) !important;
+}
+.sidebar-footer a {
+    color: var(--text-muted) !important;
+}
+#lesson-list li {
+    background: transparent !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    color: var(--text-dark) !important;
+}
+#lesson-list li:hover {
+    background: var(--bg-main) !important;
+}
+#lesson-list li.active {
+    background: var(--bg-main) !important;
+    border-left: 4px solid var(--key-orange) !important;
+    color: var(--text-dark) !important;
+    font-weight: 600;
+}
+.custom-lesson-box textarea {
+    background: var(--bg-main) !important;
+    color: var(--text-dark) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px;
+}
+.primary-btn {
+    background: var(--key-orange) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(242, 101, 34, 0.3) !important;
+}
+.secondary-btn {
+    background: var(--key-gray) !important;
+    color: var(--text-dark) !important;
+    border: none !important;
+    border-radius: 8px !important;
+}
+
 .main-content {
-    width: 100%;
+    flex: 1;
 }
 .glass-panel {
     background: transparent !important;
@@ -50,20 +101,52 @@ body {
 
 .text-wrapper {
     flex: 1;
-    background: transparent;
-    border: 1px solid #d1d1d6;
-    border-radius: 12px;
-    padding: 2rem;
+    background: var(--key-white) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
     min-height: 140px;
     font-size: 1.5rem;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Text Colors */
+.text-wrapper span.completed {
+    color: var(--text-muted) !important;
+    opacity: 0.5;
+}
+.text-wrapper span.current {
+    color: #ff3b30 !important; /* Red for next key */
+    background: transparent !important;
+    border-bottom: 2px solid #ff3b30 !important;
+    font-weight: 600;
+}
+.text-wrapper span.remaining {
+    color: var(--text-dark) !important;
+}
+
+/* Start Lesson Overlay */
+.start-lesson-overlay {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(5px);
+}
+.start-lesson-overlay button {
+    background: #636b70 !important;
+    color: white !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1.5rem !important;
+    font-weight: 500 !important;
+    box-shadow: none !important;
 }
 
 .stats {
     width: 250px;
-    background: transparent;
-    border: 1px solid #d1d1d6;
+    background: var(--key-white) !important;
+    border: 1px solid var(--border-color) !important;
     border-radius: 12px;
     padding: 1.5rem;
     display: flex;
@@ -75,7 +158,8 @@ body {
     text-align: left;
 }
 .stats span {
-    font-size: 12px;
+    font-size: 14px;
+    color: var(--text-dark) !important;
 }
 
 /* Keyboard */
@@ -164,6 +248,22 @@ body {
     display: none !important;
 }
 
+/* Modals */
+.modal {
+    background: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(5px);
+}
+.modal-content, .notification-content {
+    background: var(--key-white) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
+    color: var(--text-dark) !important;
+}
+.notification-content .message {
+    color: var(--text-dark) !important;
+}
+
 /* LondonGaze specific header/footer in the body */
 .lg-header {
     position: fixed;
@@ -175,6 +275,9 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    background: rgba(251, 251, 253, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
 }
 .lg-logo {
     font-family: 'Playfair Display', serif;
@@ -193,6 +296,14 @@ body {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+}
+.lg-nav a:hover {
+    background: var(--text-dark);
+    color: var(--key-white);
 }
 .lg-footer {
     position: fixed;
