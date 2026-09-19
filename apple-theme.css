@@ -248,15 +248,18 @@ body {
 .finger-hint {
     display: block !important;
     position: absolute;
-    bottom: -1.5rem;
+    bottom: -2rem;
     left: 0;
     width: 100%;
     text-align: center;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    font-weight: 500;
+    color: var(--text-dark) !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    opacity: 1 !important;
+    background: transparent !important;
+    border: none !important;
 }
 
 /* Make text-display relative so absolute finger-hint stays inside */
